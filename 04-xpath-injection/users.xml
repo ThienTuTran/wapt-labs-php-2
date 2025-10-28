@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<users>
+    <user>
+        <username>admin</username>
+        <password>admin123</password>
+        <secret>Top Secret: Admin Only</secret>
+    </user>
+    <user>
+        <username>bob</username>
+        <password>bobpass</password>
+        <secret>Bob’s confidential data</secret>
+    </user>
+</users>
